@@ -129,7 +129,7 @@
       object-fit: cover;
       object-position: center center;
       z-index: 0;
-      filter: brightness(.55) contrast(1.08);
+      filter: brightness(.75) contrast(1.05);
     }
 
     /* overlay degradê esquerda → direita */
@@ -138,9 +138,9 @@
       position: absolute; inset: 0; z-index: 1;
       background: linear-gradient(
         105deg,
-        rgba(8,8,7,.92) 0%,
-        rgba(8,8,7,.75) 50%,
-        rgba(8,8,7,.30) 100%
+        rgba(8,8,7,.82) 0%,
+        rgba(8,8,7,.55) 50%,
+        rgba(8,8,7,.20) 100%
       );
     }
 
@@ -608,12 +608,12 @@
       #hero::before {
         background: linear-gradient(
           180deg,
-          rgba(8,8,7,.70) 0%,
-          rgba(8,8,7,.55) 50%,
-          rgba(8,8,7,.75) 100%
+          rgba(8,8,7,.55) 0%,
+          rgba(8,8,7,.38) 50%,
+          rgba(8,8,7,.60) 100%
         );
       }
-      .hero-bg { filter: brightness(.75) contrast(1.05); }
+      .hero-bg { filter: brightness(.90) contrast(1.02); }
       .hero-content { padding: 120px 0 80px; }
       .hero-stats { gap: 24px; flex-wrap: wrap; }
 
