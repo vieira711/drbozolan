@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cartão de Visita — Dr. Marcos Bozolan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --gold:       #C9A84C;
+      --gold-light: #E2C97E;
+      --black:      #0a0a0a;
+      --dark:       #141414;
+      --white:      #FFFFFF;
+      --gray:       #AAAAAA;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      gap: 40px;
+      padding: 40px 20px;
+    }
+
+    h2 {
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .label {
+      color: #666;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    /* ── CARD BASE ── */
+    .card {
+      width: 340px;
+      height: 204px;
+      border-radius: 6px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    /* ════════════════════════════
+       FRENTE
+    ════════════════════════════ */
+    .card-front {
+      background: var(--black);
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 28px 32px;
+    }
+
+    /* Linha dourada topo */
+    .card-front::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    /* Linha dourada base */
+    .card-front::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    /* Ornamento canto direito */
+    .front-ornament {
+      position: absolute;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .front-mb {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      opacity: 0.18;
+      letter-spacing: -2px;
+    }
+
+    .front-sub-mb {
+      font-size: 7px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      opacity: 0.18;
+      text-transform: uppercase;
+    }
+
+    .front-cro {
+      position: absolute;
+      bottom: 12px;
+      left: 32px;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      color: rgba(201,168,76,0.45);
+      text-transform: uppercase;
+    }
+
+    .front-tag {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+      opacity: 0.8;
+    }
+
+    .front-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .front-name em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .front-title {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--gray);
+      letter-spacing: 0.5px;
+      margin-bottom: 18px;
+    }
+
+    .front-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 14px;
+      opacity: 0.6;
+    }
+
+    .front-spec {
+      font-size: 10px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.5px;
+      line-height: 1.7;
+    }
+
+    .front-spec span {
+      color: var(--gold);
+      margin-right: 4px;
+    }
+
+    /* ════════════════════════════
+       VERSO
+    ════════════════════════════ */
+    .card-back {
+      background: var(--gold);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    .back-left {
+      background: var(--black);
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .back-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    .back-logo-sub {
+      font-size: 7px;
+      letter-spacing: 3.5px;
+      color: rgba(201,168,76,0.6);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .back-tagline {
+      font-size: 10px;
+      color: rgba(255,255,255,0.45);
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+      line-height: 1.5;
+    }
+
+    .back-services {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .back-service-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 9px;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.5px;
+    }
+
+    .back-service-item::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 7px;
+      flex-shrink: 0;
+    }
+
+    .back-right {
+      background: var(--gold);
+      padding: 22px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .back-contact-title {
+      font-size: 8px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.5);
+      margin-bottom: 12px;
+    }
+
+    .back-contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      flex: 1;
+    }
+
+    .back-contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .back-contact-label {
+      font-size: 7px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.45);
+    }
+
+    .back-contact-value {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: 0.3px;
+    }
+
+    .back-site {
+      background: var(--black);
+      border-radius: 3px;
+      padding: 7px 10px;
+      text-align: center;
+    }
+
+    .back-site-label {
+      font-size: 7px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.6);
+      margin-bottom: 2px;
+    }
+
+    .back-site-url {
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+    }
+
+    /* ── BOTÃO IMPRIMIR ── */
+    .btn-print {
+      background: var(--gold);
+      color: #000;
+      border: none;
+      padding: 14px 40px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: opacity 0.2s;
+    }
+
+    .btn-print:hover { opacity: 0.85; }
+
+    .print-tip {
+      color: #555;
+      font-size: 12px;
+      text-align: center;
+      line-height: 1.6;
+      max-width: 380px;
+    }
+
+    /* ════════════════════════════
+       PRINT
+    ════════════════════════════ */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+        margin: 0;
+      }
+
+      h2, .label, .btn-print, .print-tip { display: none !important; }
+
+      .card {
+        width: 85mm;
+        height: 54mm;
+        border-radius: 3px;
+        box-shadow: none;
+        page-break-after: always;
+        break-after: page;
+      }
+
+      .front-mb { opacity: 0.12; }
+      .front-sub-mb { opacity: 0.12; }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Cartão de Visita</h2>
+  <p class="label">Instituto Dr. Marcos Bozolan · Premium</p>
+
+  <!-- ── FRENTE ── -->
+  <div class="label">✦ FRENTE</div>
+  <div class="card card-front">
+
+    <div class="front-ornament">
+      <div class="front-mb">MB</div>
+      <div class="front-sub-mb">Odontologia</div>
+    </div>
+
+    <div class="front-tag">Instituto Dr. Marcos Bozolan</div>
+
+    <div class="front-name">
+      Dr. Marcos<br /><em>Bozolan Junior</em>
+    </div>
+
+    <div class="front-title">Cirurgião Dentista · Empresário · Mentor</div>
+
+    <div class="front-divider"></div>
+
+    <div class="front-spec">
+      <span>✦</span> Lentes de Resina &nbsp;·&nbsp;
+      <span>✦</span> Botox &nbsp;·&nbsp;
+      <span>✦</span> Harmonização
+    </div>
+
+    <div class="front-cro">CRO-SP 132574</div>
+
+  </div>
+
+  <!-- ── VERSO ── -->
+  <div class="label">✦ VERSO</div>
+  <div class="card card-back">
+
+    <div class="back-left">
+      <div>
+        <div class="back-logo">MB</div>
+        <div class="back-logo-sub">Odontologia Estética</div>
+      </div>
+
+      <div class="back-tagline">
+        "Seu sorriso pode<br />mudar o mundo."
+      </div>
+
+      <div class="back-services">
+        <div class="back-service-item">Lentes de Resina</div>
+        <div class="back-service-item">Botox Facial</div>
+        <div class="back-service-item">Preenchimento Labial</div>
+        <div class="back-service-item">Ortodontia · HOF</div>
+        <div class="back-service-item">Gengivoplastia</div>
+      </div>
+    </div>
+
+    <div class="back-right">
+      <div>
+        <div class="back-contact-title">Contato</div>
+        <div class="back-contact-list">
+          <div class="back-contact-item">
+            <div class="back-contact-label">WhatsApp</div>
+            <div class="back-contact-value">(11) 98162-6446</div>
+          </div>
+          <div class="back-contact-item">
+            <div class="back-contact-label">Instagram</div>
+            <div class="back-contact-value">@dr.bozzolan</div>
+          </div>
+          <div class="back-contact-item">
+            <div class="back-contact-label">Endereço</div>
+            <div class="back-contact-value" style="font-size:8.5px; font-weight:600;">R. Serra de Bragança, 1055<br />Mooca · São Paulo/SP</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="back-site">
+        <div class="back-site-label">Site Oficial</div>
+        <div class="back-site-url">institutobozolan.com.br</div>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="btn-print" onclick="window.print()">
+    🖨️ &nbsp; Imprimir Cartão
+  </button>
+
+  <p class="print-tip">
+    Clique em Imprimir → selecione <strong>"Tamanho real"</strong> ou <strong>"Sem escala"</strong>.<br />
+    Papel couchê 300g para melhor resultado.<br />
+    Frente e verso impressos separados e colados, ou envie o arquivo para uma gráfica online.
+  </p>
+
+</body>
+</html>
