@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposta Comercial — Instituto Dr. Marcos Bozolan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold:      #B8922A;
+      --gold-l:    #D4A843;
+      --gold-pale: #FBF5E6;
+      --dark:      #1A1510;
+      --mid:       #4A3F2E;
+      --muted:     #8C7B60;
+      --border:    #E8DFC8;
+      --bg:        #FDFAF4;
+      --white:     #FFFFFF;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #EDE8DF;
+      display: flex;
+      justify-content: center;
+      padding: 48px 20px;
+      color: var(--dark);
+    }
+
+    .page {
+      background: var(--white);
+      width: 794px;
+      min-height: 1123px;
+      padding: 64px 72px;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    /* Faixa dourada topo */
+    .page::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent 5%, var(--gold-l) 35%, var(--gold) 65%, transparent 95%);
+    }
+
+    /* ── CABEÇALHO ── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+    .logo span { color: var(--gold); }
+    .logo small {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .header-meta {
+      text-align: right;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .header-meta strong { color: var(--dark); font-size: 12px; display: block; }
+
+    /* ── TÍTULO DA PROPOSTA ── */
+    .proposal-title {
+      margin-bottom: 40px;
+    }
+    .eyebrow {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .proposal-title h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--dark);
+    }
+    .proposal-title h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .proposal-title p {
+      margin-top: 12px;
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    /* ── SEÇÃO ── */
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── TABELA DE ANCORAGEM ── */
+    .table-anchor {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .table-anchor thead tr {
+      background: var(--gold-pale);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .table-anchor thead th {
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .table-anchor thead th:last-child { text-align: right; }
+
+    .table-anchor tbody tr { border-bottom: 1px solid var(--border); }
+    .table-anchor tbody tr:last-child { border-bottom: none; }
+
+    .table-anchor tbody td {
+      padding: 13px 14px;
+      font-size: 13px;
+      color: var(--mid);
+      vertical-align: middle;
+    }
+    .table-anchor tbody td:last-child {
+      text-align: right;
+      font-weight: 600;
+      color: var(--dark);
+      white-space: nowrap;
+    }
+    .table-anchor .service-name { font-weight: 500; color: var(--dark); }
+    .table-anchor .service-desc { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+    .table-total {
+      background: var(--dark);
+      border-radius: 3px;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+    }
+    .table-total span { font-size: 12px; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; }
+    .table-total strong { font-size: 22px; color: var(--gold-l); font-family: 'Playfair Display', serif; }
+
+    /* ── PACOTE ESPECIAL ── */
+    .package-box {
+      border: 2px solid var(--gold);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .package-header {
+      background: var(--gold);
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .package-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .package-header .badge {
+      background: rgba(255,255,255,0.2);
+      color: var(--white);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 2px;
+    }
+
+    .package-body {
+      background: var(--gold-pale);
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .package-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .package-item-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .package-item-value {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .package-item-value s {
+      color: var(--muted);
+      font-weight: 400;
+      font-size: 11px;
+      margin-right: 6px;
+    }
+    .package-item-value .price-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--gold);
+    }
+    .package-item-value .price-month {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--gold);
+    }
+
+    .package-footer {
+      padding: 12px 24px;
+      background: var(--gold-pale);
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── TRÁFEGO PAGO ── */
+    .ads-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .ads-card {
+      background: var(--gold-pale);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 16px 18px;
+    }
+    .ads-card-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .ads-card-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .ads-card-sub {
+      font-size: 11px;
+      color: var(--mid);
+      margin-top: 4px;
+    }
+
+    /* Tabela keywords */
+    .kw-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+    .kw-table thead tr {
+      background: var(--gold-pale);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .kw-table thead th {
+      padding: 8px 12px;
+      text-align: left;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .kw-table thead th:last-child { text-align: center; }
+    .kw-table tbody tr { border-bottom: 1px dashed var(--border); }
+    .kw-table tbody td { padding: 10px 12px; color: var(--mid); }
+    .kw-table tbody td:last-child { text-align: center; }
+
+    .intent-badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 2px;
+    }
+    .intent-hot { background: #FEE2E2; color: #B91C1C; }
+    .intent-mid { background: #FEF3C7; color: #92400E; }
+
+    /* Projeção */
+    .projection-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .proj-card {
+      flex: 1;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .proj-icon { font-size: 18px; margin-bottom: 6px; }
+    .proj-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .proj-label { font-size: 10px; color: var(--muted); margin-top: 4px; }
+
+    .highlight-box {
+      background: var(--dark);
+      border-radius: 3px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .highlight-box .hl-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+    .highlight-box p {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+    }
+    .highlight-box p strong {
+      color: var(--gold-l);
+      font-weight: 600;
+    }
+
+    /* WA note */
+    .wa-note {
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      border-radius: 3px;
+      padding: 12px 16px;
+      font-size: 12px;
+      color: #166534;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-top: 16px;
+    }
+    .wa-note-icon { font-size: 16px; flex-shrink: 0; }
+
+    /* ── RODAPÉ ── */
+    .footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .footer-left { font-size: 11px; color: var(--muted); line-height: 1.8; }
+    .footer-right {
+      text-align: right;
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    /* ── PRINT ── */
+    .btn-print {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: var(--gold);
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      box-shadow: 0 4px 20px rgba(184,146,42,0.4);
+      transition: opacity .2s;
+    }
+    .btn-print:hover { opacity: 0.85; }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .page { box-shadow: none; }
+      .btn-print { display: none !important; }
+      .page::before { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- CABEÇALHO -->
+  <div class="header">
+    <div class="logo">
+      Instituto <span>Dr. Bozolan</span>
+      <small>Proposta Comercial Exclusiva</small>
+    </div>
+    <div class="header-meta">
+      <strong>Dr. Marcos Bozolan Junior</strong>
+      CRO-SP 132574<br />
+      Mooca · São Paulo/SP<br />
+      Maio de 2026
+    </div>
+  </div>
+
+  <!-- TÍTULO -->
+  <div class="proposal-title">
+    <div class="eyebrow">Presença Digital Completa</div>
+    <h1>Transforme sua <em>visibilidade online</em><br />e atraia mais pacientes.</h1>
+    <p>Você tem 28 mil seguidores no Instagram, resultados excepcionais e pacientes satisfeitos — mas quem busca seu nome no Google não encontra nada. Vamos mudar isso.</p>
+  </div>
+
+  <!-- ÂNCORA DE PREÇO -->
+  <div class="section">
+    <div class="section-title">Serviços individuais — tabela de referência</div>
+    <table class="table-anchor">
+      <thead>
+        <tr>
+          <th>Serviço</th>
+          <th style="text-align:right;">Valor de mercado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="service-name">Site Landing Page Premium</div>
+            <div class="service-desc">Design exclusivo, fotos do doutor, depoimentos reais, otimizado para WhatsApp</div>
+          </td>
+          <td>R$ 3.500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Domínio institutobozolan.com.br</div>
+            <div class="service-desc">Registro anual, endereço profissional na web</div>
+          </td>
+          <td>R$ 80</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Hospedagem anual</div>
+            <div class="service-desc">Servidor rápido, SSL incluso, 99,9% de disponibilidade</div>
+          </td>
+          <td>R$ 480</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Google Meu Negócio — cadastro e otimização</div>
+            <div class="service-desc">Endereço correto, fotos, horários, categorias, estratégia de avaliações</div>
+          </td>
+          <td>R$ 450</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Cartão de visita digital (arte final para gráfica)</div>
+            <div class="service-desc">Frente e verso, formato 85×54mm, pronto para impressão em couchê 300g</div>
+          </td>
+          <td>R$ 250</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">SEO básico + Google Search Console</div>
+            <div class="service-desc">Indexação, sitemap, rastreamento de visitantes</div>
+          </td>
+          <td>R$ 320</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-total">
+      <span>Total separado</span>
+      <strong>R$ 5.080</strong>
+    </div>
+  </div>
+
+  <!-- PACOTE ESPECIAL -->
+  <div class="section">
+    <div class="section-title">Pacote especial — condição de lançamento</div>
+
+    <div class="package-box">
+      <div class="package-header">
+        <h3>Presença Digital Completa</h3>
+        <div class="badge">Oferta exclusiva</div>
+      </div>
+      <div class="package-body">
+        <div class="package-item">
+          <div class="package-item-label">Investimento único (setup)</div>
+          <div class="package-item-value">
+            <s>R$ 5.080</s>
+            <span class="price-main">R$ 1.490</span>
+          </div>
+        </div>
+        <div class="package-item">
+          <div class="package-item-label">Manutenção mensal</div>
+          <div class="package-item-value">
+            <span class="price-month">R$ 197/mês</span>
+          </div>
+        </div>
+        <div class="package-item">
+          <div class="package-item-label">O que inclui</div>
+          <div class="package-item-value" style="font-size:12px; font-weight:400; color: var(--mid); line-height:1.7;">
+            Site + Domínio + Hospedagem<br />
+            Google Meu Negócio + Cartão + SEO
+          </div>
+        </div>
+        <div class="package-item">
+          <div class="package-item-label">Manutenção inclui</div>
+          <div class="package-item-value" style="font-size:12px; font-weight:400; color: var(--mid); line-height:1.7;">
+            Atualização de fotos e casos clínicos<br />
+            Suporte via WhatsApp · Sem fidelidade
+          </div>
+        </div>
+      </div>
+      <div class="package-footer">
+        ✦ &nbsp;Valor especial por ser o case de lançamento na região — garantia de exclusividade entre dentistas da Mooca.
+      </div>
+    </div>
+  </div>
+
+  <!-- TRÁFEGO PAGO -->
+  <div class="section">
+    <div class="section-title">Opcional — Google Ads: captação ativa de pacientes</div>
+
+    <div class="ads-grid">
+      <div class="ads-card">
+        <div class="ads-card-label">Buscas mensais (SP)</div>
+        <div class="ads-card-value">6.500+</div>
+        <div class="ads-card-sub">pessoas buscando lentes, botox e harmonização</div>
+      </div>
+      <div class="ads-card">
+        <div class="ads-card-label">Leads estimados/mês</div>
+        <div class="ads-card-value">20–60</div>
+        <div class="ads-card-sub">com R$ 1.500 de verba mensal</div>
+      </div>
+    </div>
+
+    <table class="kw-table">
+      <thead>
+        <tr>
+          <th>Palavra-chave Google</th>
+          <th>Buscas/mês</th>
+          <th>Intenção</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"lentes de resina São Paulo"</td>
+          <td>2.400</td>
+          <td><span class="intent-badge intent-hot">Alta — quer fazer</span></td>
+        </tr>
+        <tr>
+          <td>"dentista botox São Paulo"</td>
+          <td>1.300</td>
+          <td><span class="intent-badge intent-hot">Alta — quer fazer</span></td>
+        </tr>
+        <tr>
+          <td>"harmonização facial dentista SP"</td>
+          <td>880</td>
+          <td><span class="intent-badge intent-hot">Alta — quer fazer</span></td>
+        </tr>
+        <tr>
+          <td>"lentes de resina preço SP"</td>
+          <td>1.900</td>
+          <td><span class="intent-badge intent-mid">Média — pesquisando</span></td>
+        </tr>
+        <tr>
+          <td>"dentista Mooca"</td>
+          <td>720</td>
+          <td><span class="intent-badge intent-mid">Local — próximo</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="projection-row">
+      <div class="proj-card">
+        <div class="proj-num">200–400</div>
+        <div class="proj-label">cliques/mês no site</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num">20–60</div>
+        <div class="proj-label">contatos via WhatsApp</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num">6–30</div>
+        <div class="proj-label">novos pacientes/mês</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num">R$3–8K</div>
+        <div class="proj-label">ticket médio lentes</div>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <div class="hl-icon">💡</div>
+      <p>
+        <strong>1 paciente de lentes de resina já cobre o investimento total do mês.</strong><br />
+        A verba publicitária (R$ 1.000–2.000/mês) vai diretamente para o Google no cartão do doutor — total transparência. A gestão da campanha fica <strong>R$ 500/mês</strong>.
+      </p>
+    </div>
+
+    <div class="wa-note">
+      <div class="wa-note-icon">💬</div>
+      <div>
+        <strong>Sobre o WhatsApp:</strong> todos os leads gerados pelo Google Ads chegam direto para a atendente via WhatsApp — ela agenda, confirma e filtra. O doutor não precisa responder nada pessoalmente.
+      </div>
+    </div>
+  </div>
+
+  <!-- RODAPÉ -->
+  <div class="footer">
+    <div class="footer-left">
+      Proposta válida para apresentação em maio de 2026.<br />
+      Valores em reais (BRL) · Sem fidelidade mínima<br />
+      Dúvidas? WhatsApp disponível após a reunião.
+    </div>
+    <div class="footer-right">
+      "Seu sorriso pode<br />mudar o mundo."
+    </div>
+  </div>
+
+</div>
+
+<button class="btn-print" onclick="window.print()">Salvar como PDF</button>
+
+</body>
+</html>
