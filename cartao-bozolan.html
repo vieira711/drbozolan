@@ -8,30 +8,35 @@
 
   <style>
     :root {
-      --gold:       #C9A84C;
-      --gold-light: #E2C97E;
-      --black:      #0a0a0a;
-      --dark:       #141414;
-      --white:      #FFFFFF;
-      --gray:       #AAAAAA;
+      --gold:        #B8922A;
+      --gold-light:  #D4A843;
+      --gold-pale:   #F5EDD6;
+      --gold-border: rgba(184,146,42,0.25);
+      --black:       #1A1510;
+      --dark-text:   #2C2416;
+      --mid-text:    #6B5B3E;
+      --light-text:  #9C8A6B;
+      --white:       #FFFFFF;
+      --cream:       #FDFAF4;
+      --paper:       #F9F5EC;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #1a1a1a;
+      background: #EDE8DF;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      gap: 40px;
-      padding: 40px 20px;
+      gap: 36px;
+      padding: 48px 24px;
     }
 
     h2 {
-      color: var(--gold);
+      color: var(--dark-text);
       font-family: 'Playfair Display', serif;
       font-size: 18px;
       letter-spacing: 2px;
@@ -40,30 +45,33 @@
     }
 
     .label {
-      color: #666;
+      color: var(--light-text);
       font-size: 11px;
       letter-spacing: 3px;
       text-transform: uppercase;
       text-align: center;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
     /* ── CARD BASE ── */
     .card {
       width: 340px;
       height: 204px;
-      border-radius: 6px;
+      border-radius: 4px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      box-shadow:
+        0 2px 4px rgba(0,0,0,0.06),
+        0 8px 24px rgba(0,0,0,0.10),
+        0 24px 48px rgba(0,0,0,0.08);
     }
 
     /* ════════════════════════════
        FRENTE
     ════════════════════════════ */
     .card-front {
-      background: var(--black);
-      border: 1px solid rgba(201,168,76,0.3);
+      background: var(--white);
+      border: 1px solid var(--gold-border);
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -71,44 +79,44 @@
       padding: 28px 32px;
     }
 
-    /* Linha dourada topo */
+    /* Faixa dourada topo */
     .card-front::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      background: linear-gradient(90deg, transparent 5%, var(--gold-light) 40%, var(--gold) 60%, transparent 95%);
     }
 
-    /* Linha dourada base */
+    /* Linha sutil base */
     .card-front::after {
       content: '';
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
     }
 
     /* Ornamento canto direito */
     .front-ornament {
       position: absolute;
-      right: 24px;
+      right: 22px;
       top: 50%;
       transform: translateY(-50%);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
+      gap: 3px;
     }
 
     .front-mb {
       font-family: 'Playfair Display', serif;
-      font-size: 38px;
+      font-size: 44px;
       font-weight: 700;
       color: var(--gold);
       line-height: 1;
-      opacity: 0.18;
-      letter-spacing: -2px;
+      opacity: 0.10;
+      letter-spacing: -3px;
     }
 
     .front-sub-mb {
@@ -119,32 +127,43 @@
       text-transform: uppercase;
     }
 
+    /* Marca d'água ornamental */
+    .front-watermark {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 80px;
+      height: 80px;
+      opacity: 0.04;
+      pointer-events: none;
+    }
+
     .front-cro {
       position: absolute;
-      bottom: 12px;
+      bottom: 10px;
       left: 32px;
-      font-size: 9px;
+      font-size: 8.5px;
       letter-spacing: 1.5px;
-      color: rgba(201,168,76,0.45);
+      color: var(--light-text);
       text-transform: uppercase;
     }
 
     .front-tag {
-      font-size: 9px;
+      font-size: 8.5px;
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 10px;
-      opacity: 0.8;
+      font-weight: 500;
     }
 
     .front-name {
       font-family: 'Playfair Display', serif;
       font-size: 22px;
       font-weight: 700;
-      color: var(--white);
+      color: var(--dark-text);
       line-height: 1.2;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
 
     .front-name em {
@@ -153,46 +172,59 @@
     }
 
     .front-title {
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 400;
-      color: var(--gray);
-      letter-spacing: 0.5px;
-      margin-bottom: 18px;
+      color: var(--mid-text);
+      letter-spacing: 0.4px;
+      margin-bottom: 16px;
     }
 
     .front-divider {
-      width: 40px;
+      width: 36px;
       height: 1px;
       background: var(--gold);
-      margin-bottom: 14px;
-      opacity: 0.6;
+      margin-bottom: 12px;
+      opacity: 0.5;
     }
 
     .front-spec {
-      font-size: 10px;
-      color: rgba(255,255,255,0.55);
-      letter-spacing: 0.5px;
+      font-size: 9.5px;
+      color: var(--mid-text);
+      letter-spacing: 0.3px;
       line-height: 1.7;
     }
 
-    .front-spec span {
+    .front-spec .dot {
       color: var(--gold);
-      margin-right: 4px;
+      margin: 0 5px;
+      opacity: 0.8;
     }
 
     /* ════════════════════════════
        VERSO
     ════════════════════════════ */
     .card-back {
-      background: var(--gold);
+      background: var(--cream);
       display: grid;
       grid-template-columns: 1fr 1fr;
       overflow: hidden;
+      border: 1px solid var(--gold-border);
+    }
+
+    /* Faixa dourada topo do verso */
+    .card-back::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 5%, var(--gold-light) 40%, var(--gold) 60%, transparent 95%);
+      z-index: 2;
     }
 
     .back-left {
-      background: var(--black);
-      padding: 22px 24px;
+      background: var(--paper);
+      border-right: 1px solid var(--gold-border);
+      padding: 22px 22px 16px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -200,54 +232,59 @@
 
     .back-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 28px;
+      font-size: 30px;
       font-weight: 700;
       color: var(--gold);
       line-height: 1;
-      letter-spacing: -1px;
+      letter-spacing: -1.5px;
     }
 
     .back-logo-sub {
       font-size: 7px;
-      letter-spacing: 3.5px;
-      color: rgba(201,168,76,0.6);
+      letter-spacing: 3px;
+      color: var(--light-text);
       text-transform: uppercase;
       margin-top: 4px;
     }
 
     .back-tagline {
       font-size: 10px;
-      color: rgba(255,255,255,0.45);
+      color: var(--mid-text);
       font-style: italic;
       font-family: 'Playfair Display', serif;
-      line-height: 1.5;
+      line-height: 1.55;
+      border-left: 2px solid var(--gold);
+      padding-left: 9px;
+      opacity: 0.85;
     }
 
     .back-services {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 4px;
     }
 
     .back-service-item {
       display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 9px;
-      color: rgba(255,255,255,0.65);
-      letter-spacing: 0.5px;
+      font-size: 8.5px;
+      color: var(--mid-text);
+      letter-spacing: 0.3px;
     }
 
     .back-service-item::before {
-      content: '✦';
-      color: var(--gold);
-      font-size: 7px;
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.7;
       flex-shrink: 0;
     }
 
     .back-right {
-      background: var(--gold);
-      padding: 22px 22px;
+      padding: 22px 20px 16px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -257,49 +294,51 @@
       font-size: 8px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: rgba(0,0,0,0.5);
-      margin-bottom: 12px;
+      color: var(--gold);
+      margin-bottom: 14px;
+      font-weight: 600;
     }
 
     .back-contact-list {
       display: flex;
       flex-direction: column;
-      gap: 9px;
+      gap: 10px;
       flex: 1;
     }
 
     .back-contact-item {
       display: flex;
       flex-direction: column;
-      gap: 1px;
+      gap: 2px;
     }
 
     .back-contact-label {
       font-size: 7px;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: rgba(0,0,0,0.45);
+      color: var(--light-text);
     }
 
     .back-contact-value {
       font-size: 10px;
-      font-weight: 700;
-      color: var(--black);
-      letter-spacing: 0.3px;
+      font-weight: 600;
+      color: var(--dark-text);
+      letter-spacing: 0.2px;
     }
 
     .back-site {
-      background: var(--black);
+      border: 1px solid var(--gold-border);
       border-radius: 3px;
       padding: 7px 10px;
       text-align: center;
+      background: var(--white);
     }
 
     .back-site-label {
       font-size: 7px;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: rgba(201,168,76,0.6);
+      color: var(--light-text);
       margin-bottom: 2px;
     }
 
@@ -307,31 +346,33 @@
       font-size: 9px;
       font-weight: 700;
       color: var(--gold);
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
     }
 
     /* ── BOTÃO IMPRIMIR ── */
     .btn-print {
       background: var(--gold);
-      color: #000;
+      color: var(--white);
       border: none;
-      padding: 14px 40px;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      border-radius: 4px;
+      padding: 14px 44px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      border-radius: 3px;
       cursor: pointer;
       font-family: 'Inter', sans-serif;
-      transition: opacity 0.2s;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.1s;
     }
 
-    .btn-print:hover { opacity: 0.85; }
+    .btn-print:hover { background: var(--gold-light); }
+    .btn-print:active { transform: scale(0.98); }
 
     .print-tip {
-      color: #555;
+      color: var(--mid-text);
       font-size: 12px;
       text-align: center;
-      line-height: 1.6;
+      line-height: 1.7;
       max-width: 380px;
     }
 
@@ -343,6 +384,7 @@
         background: white;
         padding: 0;
         margin: 0;
+        gap: 0;
       }
 
       h2, .label, .btn-print, .print-tip { display: none !important; }
@@ -350,14 +392,17 @@
       .card {
         width: 85mm;
         height: 54mm;
-        border-radius: 3px;
+        border-radius: 2px;
         box-shadow: none;
         page-break-after: always;
         break-after: page;
+        border: 0.5pt solid #D4A843 !important;
       }
 
-      .front-mb { opacity: 0.12; }
-      .front-sub-mb { opacity: 0.12; }
+      .card-front::before,
+      .card-back::before {
+        height: 2pt;
+      }
     }
   </style>
 </head>
@@ -375,6 +420,13 @@
       <div class="front-sub-mb">Odontologia</div>
     </div>
 
+    <!-- Marca d'água ornamental SVG -->
+    <svg class="front-watermark" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="40" cy="40" r="36" stroke="#B8922A" stroke-width="1"/>
+      <circle cx="40" cy="40" r="28" stroke="#B8922A" stroke-width="0.5"/>
+      <path d="M40 10 L40 70 M10 40 L70 40" stroke="#B8922A" stroke-width="0.5"/>
+    </svg>
+
     <div class="front-tag">Instituto Dr. Marcos Bozolan</div>
 
     <div class="front-name">
@@ -386,9 +438,11 @@
     <div class="front-divider"></div>
 
     <div class="front-spec">
-      <span>✦</span> Lentes de Resina &nbsp;·&nbsp;
-      <span>✦</span> Botox &nbsp;·&nbsp;
-      <span>✦</span> Harmonização
+      Lentes de Resina
+      <span class="dot">✦</span>
+      Botox
+      <span class="dot">✦</span>
+      Harmonização
     </div>
 
     <div class="front-cro">CRO-SP 132574</div>
@@ -432,7 +486,7 @@
           </div>
           <div class="back-contact-item">
             <div class="back-contact-label">Endereço</div>
-            <div class="back-contact-value" style="font-size:8.5px; font-weight:600;">R. Serra de Bragança, 1055<br />Mooca · São Paulo/SP</div>
+            <div class="back-contact-value" style="font-size:8px; font-weight:500; color: var(--mid-text);">R. Serra de Bragança, 1055<br />Mooca · São Paulo/SP</div>
           </div>
         </div>
       </div>
@@ -446,13 +500,13 @@
   </div>
 
   <button class="btn-print" onclick="window.print()">
-    🖨️ &nbsp; Imprimir Cartão
+    Imprimir Cartão
   </button>
 
   <p class="print-tip">
-    Clique em Imprimir → selecione <strong>"Tamanho real"</strong> ou <strong>"Sem escala"</strong>.<br />
-    Papel couchê 300g para melhor resultado.<br />
-    Frente e verso impressos separados e colados, ou envie o arquivo para uma gráfica online.
+    Imprimir → <strong>"Tamanho real"</strong> ou <strong>"Sem escala"</strong>.<br />
+    Papel couchê 300g · Frente e verso separados e colados.<br />
+    Ou envie o arquivo para uma gráfica online.
   </p>
 
 </body>
