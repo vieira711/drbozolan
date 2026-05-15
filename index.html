@@ -605,6 +605,15 @@
 
       /* hero full bleed mobile */
       #hero { min-height: 100svh; }
+      #hero::before {
+        background: linear-gradient(
+          180deg,
+          rgba(8,8,7,.70) 0%,
+          rgba(8,8,7,.55) 50%,
+          rgba(8,8,7,.75) 100%
+        );
+      }
+      .hero-bg { filter: brightness(.75) contrast(1.05); }
       .hero-content { padding: 120px 0 80px; }
       .hero-stats { gap: 24px; flex-wrap: wrap; }
 
