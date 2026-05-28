@@ -3,1004 +3,142 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instituto Dr. Marcos Bozolan | Lentes de Resina & Estética — São Paulo</title>
-  <meta name="description" content="Instituto Dr. Marcos Bozolan — Referência em Lentes de Resina, Botox e Harmonização em São Paulo. +7.000 sorrisos transformados desde 2018." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
+  <title>Instituto Dr. Marcos Bozolan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ─── TOKENS ─────────────────────────────────── */
-    :root {
-      --gold:        #C9A84C;
-      --gold-light:  #E2C97E;
-      --gold-dark:   #9A7B32;
-      --gold-pale:   rgba(201,168,76,.08);
-      --black:       #080807;
-      --dark:        #111110;
-      --dark2:       #181816;
-      --surface:     #1E1D1B;
-      --white:       #FDFCF8;
-      --muted:       #888880;
-      --border:      rgba(255,255,255,.07);
-      --border-gold: rgba(201,168,76,.2);
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ─── RESET ──────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html  { scroll-behavior: smooth; }
-    body  { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
-    h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
-    a  { text-decoration: none; color: inherit; }
-    img { display: block; max-width: 100%; height: auto; }
-
-    /* ─── UTILITIES ──────────────────────────────── */
-    .container { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
-
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-size: 10px; font-weight: 600; letter-spacing: 3.5px;
-      text-transform: uppercase; color: var(--gold);
-      margin-bottom: 20px;
-    }
-    .eyebrow::before {
-      content: ''; display: block; width: 32px; height: 1px; background: var(--gold);
-    }
-
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: var(--gold); color: var(--black);
-      font-weight: 700; font-size: 13px; letter-spacing: .5px;
-      padding: 16px 36px; border-radius: 2px;
-      border: none; cursor: pointer;
-      transition: background .2s, transform .2s, box-shadow .2s;
-      min-height: 52px;
-    }
-    .btn-primary:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 32px rgba(201,168,76,.25);
-    }
-
-    .btn-ghost {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: transparent; color: rgba(255,255,255,.75);
-      font-weight: 500; font-size: 13px; letter-spacing: .5px;
-      padding: 15px 34px; border-radius: 2px;
-      border: 1px solid rgba(255,255,255,.18); cursor: pointer;
-      transition: border-color .2s, color .2s;
-      min-height: 52px;
-    }
-    .btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); }
-
-    /* ─── NAV ────────────────────────────────────── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
-      padding: 28px 40px;
-      display: flex; align-items: center; justify-content: space-between;
-      transition: background .4s, padding .3s, border-color .4s;
-      border-bottom: 1px solid transparent;
-    }
-    nav.scrolled {
-      background: rgba(8,8,7,.95);
-      backdrop-filter: blur(20px);
-      padding: 18px 40px;
-      border-color: var(--border);
-    }
-
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 17px; font-weight: 700; letter-spacing: .5px;
-    }
-    .nav-logo span { color: var(--gold); }
-
-    .nav-right { display: flex; align-items: center; gap: 40px; }
-
-    .nav-links { display: flex; gap: 32px; }
-    .nav-link {
-      font-size: 12px; font-weight: 500; letter-spacing: .5px;
-      color: rgba(255,255,255,.6);
-      transition: color .2s;
-    }
-    .nav-link:hover { color: var(--gold); }
-
-    .nav-cta {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--gold); color: var(--black);
-      font-size: 12px; font-weight: 700; letter-spacing: .5px;
-      padding: 11px 24px; border-radius: 2px;
-      transition: background .2s;
-      min-height: 44px;
-    }
-    .nav-cta:hover { background: var(--gold-light); }
-
-    /* ─── HERO — FULL BLEED CONSULTÓRIO ─────────── */
-    #hero {
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #080807;
+      color: #FDFCF8;
       min-height: 100vh;
-      position: relative;
       display: flex;
       align-items: center;
-      overflow: hidden;
+      justify-content: center;
+      padding: 40px 24px;
     }
 
-    .hero-bg {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center center;
-      z-index: 0;
-      filter: brightness(.75) contrast(1.05);
+    .wrap {
+      max-width: 540px;
+      text-align: center;
     }
 
-    /* overlay degradê esquerda → direita */
-    #hero::before {
-      content: '';
-      position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(
-        105deg,
-        rgba(8,8,7,.82) 0%,
-        rgba(8,8,7,.55) 50%,
-        rgba(8,8,7,.20) 100%
-      );
-    }
-
-    /* linha dourada no rodapé do hero */
-    #hero::after {
-      content: '';
-      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
-
-    .hero-content {
-      position: relative; z-index: 2;
-      max-width: 660px;
-      padding: 140px 40px 100px 0;
-    }
-
-    .hero-title {
-      font-size: clamp(42px, 5.5vw, 74px);
-      line-height: 1.05; font-weight: 700;
-      margin-bottom: 24px;
-    }
-    .hero-title em { font-style: italic; color: var(--gold); display: block; }
-
-    .hero-sub {
-      font-size: 15px; font-weight: 300; line-height: 1.8;
-      color: rgba(255,255,255,.6);
-      max-width: 460px; margin-bottom: 44px;
-    }
-
-    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
-
-    .hero-stats {
-      display: flex; gap: 40px;
-      padding-top: 40px;
-      border-top: 1px solid var(--border);
-    }
-
-    .hero-stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 30px; font-weight: 700; color: var(--gold);
-      line-height: 1;
-    }
-    .hero-stat-label {
-      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
-      color: var(--muted); margin-top: 6px;
-    }
-
-    /* ─── SOBRE — EDITORIAL ───────────────────────── */
-    #sobre {
-      padding: 0;
-      display: grid;
-      grid-template-columns: 45% 55%;
-      min-height: 700px;
-    }
-
-    .sobre-photo-col {
-      position: relative; overflow: hidden;
-      background: var(--dark2);
-    }
-
-    .sobre-photo {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      filter: brightness(.88) contrast(1.08);
-    }
-
-    /* gradiente direita */
-    .sobre-photo-col::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to right, transparent 50%, rgba(17,17,16,.95) 100%);
-    }
-
-    .sobre-text-col {
-      background: var(--dark);
-      padding: 100px 72px 100px 56px;
-      display: flex; flex-direction: column; justify-content: center;
-    }
-
-    .sobre-quote {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: clamp(20px, 2.5vw, 28px);
-      line-height: 1.55;
-      color: var(--white);
-      border-left: 2px solid var(--gold);
-      padding-left: 24px;
-      margin: 24px 0 32px;
-    }
-
-    .sobre-text-col p {
-      font-size: 14.5px; font-weight: 300; line-height: 1.9;
-      color: rgba(255,255,255,.6);
-      margin-bottom: 16px;
-      max-width: 500px;
-    }
-
-    .sobre-chips {
-      display: flex; flex-wrap: wrap; gap: 8px;
-      margin: 28px 0 36px;
-    }
-    .chip {
-      border: 1px solid var(--border-gold);
-      color: var(--gold);
-      font-size: 10px; font-weight: 600;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 7px 16px; border-radius: 1px;
-    }
-
-    /* ─── SERVIÇOS — LISTA EDITORIAL ─────────────── */
-    #servicos {
-      background: var(--black);
-      padding: 110px 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .servicos-header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: end;
-      margin-bottom: 72px;
-    }
-
-    .servicos-header .section-title {
-      font-size: clamp(32px, 4vw, 52px);
-      line-height: 1.1; font-weight: 700;
-    }
-
-    .servicos-header p {
-      font-size: 14px; font-weight: 300; line-height: 1.85;
-      color: rgba(255,255,255,.55);
-      max-width: 420px;
-    }
-
-    .servicos-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-top: 1px solid var(--border);
-    }
-
-    .servico-item {
-      padding: 44px 40px;
-      border-bottom: 1px solid var(--border);
-      border-right: 1px solid var(--border);
-      position: relative;
-      transition: background .3s;
-    }
-    .servico-item:nth-child(even) { border-right: none; }
-    .servico-item:hover { background: var(--gold-pale); }
-
-    .servico-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 48px; font-weight: 700;
-      color: rgba(201,168,76,.15);
-      line-height: 1;
-      margin-bottom: 16px;
-    }
-
-    .servico-item h3 {
-      font-size: 19px; font-weight: 600;
-      margin-bottom: 10px; color: var(--white);
-    }
-
-    .servico-item.destaque h3 { color: var(--gold); }
-
-    .servico-badge-inline {
-      display: inline-block;
-      background: var(--gold); color: var(--black);
-      font-size: 8px; font-weight: 800;
-      letter-spacing: 2px; text-transform: uppercase;
-      padding: 3px 9px; border-radius: 1px;
-      margin-bottom: 12px;
-    }
-
-    .servico-item p {
-      font-size: 13.5px; font-weight: 300; line-height: 1.75;
-      color: rgba(255,255,255,.5);
-    }
-
-    /* seta no hover */
-    .servico-arrow {
-      position: absolute; bottom: 28px; right: 32px;
-      color: var(--gold); opacity: 0;
-      transition: opacity .25s, transform .25s;
-    }
-    .servico-item:hover .servico-arrow { opacity: 1; transform: translateX(4px); }
-
-    /* ─── RESULTADOS ─────────────────────────────── */
-    #feedbacks {
-      background: var(--dark);
-      padding: 110px 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .feedbacks-header {
-      display: flex; align-items: flex-end; justify-content: space-between;
-      margin-bottom: 56px;
-      gap: 40px;
-    }
-
-    .feedbacks-header .section-title {
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.1;
-    }
-
-    .feedbacks-header p {
-      font-size: 13px; font-weight: 300; line-height: 1.75;
-      color: rgba(255,255,255,.5);
-      max-width: 300px; text-align: right;
-    }
-
-    /* grid assimétrico */
-    .feedbacks-masonry {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-auto-rows: 200px;
-      gap: 10px;
-    }
-
-    .fb-card {
-      overflow: hidden; border-radius: 2px;
-      background: var(--surface);
-      position: relative; cursor: zoom-in;
-    }
-    .fb-card:nth-child(1) { grid-row: span 2; }
-    .fb-card:nth-child(4) { grid-row: span 2; }
-    .fb-card:nth-child(7) { grid-column: span 2; }
-
-    .fb-card img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform .5s, filter .5s;
-      filter: brightness(.95);
-    }
-    .fb-card:hover img { transform: scale(1.06); filter: brightness(1); }
-
-    .fb-card-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,.5) 0%, transparent 60%);
-      opacity: 0; transition: opacity .3s;
-    }
-    .fb-card:hover .fb-card-overlay { opacity: 1; }
-
-    /* ─── DEPOIMENTOS ────────────────────────────── */
-    #depoimentos {
-      background: var(--black);
-      padding: 110px 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .depo-header { text-align: center; margin-bottom: 64px; }
-    .depo-header .section-title { font-size: clamp(28px, 4vw, 46px); }
-
-    .depo-sub {
-      font-size: 13px; font-weight: 300;
-      color: rgba(255,255,255,.4);
-      margin-top: 14px;
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-    }
-    .depo-sub svg { color: #25D366; flex-shrink: 0; }
-
-    /* Grid de screenshots WhatsApp */
-    .depo-wa-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-      align-items: start;
-    }
-
-    .depo-wa-card {
-      background: var(--surface);
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      transition: transform .3s, border-color .3s, box-shadow .3s;
-      cursor: pointer;
-    }
-    .depo-wa-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--border-gold);
-      box-shadow: 0 16px 48px rgba(0,0,0,.5);
-    }
-
-    /* Cards alternados com alturas diferentes — efeito masonry visual */
-    .depo-wa-card:nth-child(2) { margin-top: 28px; }
-    .depo-wa-card:nth-child(4) { margin-top: 20px; }
-
-    .depo-wa-card img {
-      width: 100%;
+    .icon {
+      font-size: 48px;
+      margin-bottom: 32px;
       display: block;
-      object-fit: cover;
     }
 
-    .depo-wa-badge {
-      display: flex; align-items: center; gap: 6px;
-      padding: 10px 14px;
-      font-size: 10px; font-weight: 600; letter-spacing: .5px;
-      color: rgba(255,255,255,.4);
-      border-top: 1px solid var(--border);
-    }
-    .depo-wa-badge svg { color: #25D366; flex-shrink: 0; }
-
-    /* ─── CTA — SPLIT COM FOTO ────────────────────── */
-    #agendar {
-      display: grid;
-      grid-template-columns: 42% 58%;
-      min-height: 600px;
-    }
-
-    .cta-photo-col {
-      position: relative; overflow: hidden;
-      background: var(--dark2);
-    }
-
-    .cta-photo {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      filter: brightness(.8) contrast(1.1);
-    }
-
-    .cta-photo-col::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to right, transparent 40%, rgba(8,8,7,.9) 100%);
-    }
-
-    .cta-text-col {
-      background: var(--dark);
-      padding: 100px 72px 100px 56px;
-      display: flex; flex-direction: column; justify-content: center;
-      border-left: 1px solid var(--border);
-    }
-
-    .cta-title {
-      font-size: clamp(32px, 4vw, 54px);
-      line-height: 1.1; font-weight: 700;
+    .eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #C9A84C;
       margin-bottom: 20px;
     }
-    .cta-title em { font-style: italic; color: var(--gold); }
 
-    .cta-text-col p {
-      font-size: 14px; font-weight: 300; line-height: 1.85;
-      color: rgba(255,255,255,.55);
-      max-width: 400px; margin-bottom: 44px;
-    }
-
-    .cta-info-list {
-      margin-top: 40px; display: flex; flex-direction: column; gap: 14px;
-    }
-
-    .cta-info-item {
-      display: flex; align-items: center; gap: 12px;
-      font-size: 12px; letter-spacing: .3px;
-      color: rgba(255,255,255,.45);
-    }
-    .cta-info-item svg { color: var(--gold); flex-shrink: 0; }
-
-    /* ─── FOOTER ─────────────────────────────────── */
-    footer {
-      background: var(--black);
-      border-top: 1px solid var(--border);
-      padding: 64px 0 40px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 60px;
-      margin-bottom: 56px;
-    }
-
-    .footer-logo {
+    h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 20px; font-weight: 700;
-      margin-bottom: 14px;
-    }
-    .footer-logo span { color: var(--gold); }
-
-    .footer-desc {
-      font-size: 13px; font-weight: 300; line-height: 1.85;
-      color: rgba(255,255,255,.4);
-      max-width: 340px;
-    }
-
-    .footer-col h4 {
-      font-family: 'Inter', sans-serif;
-      font-size: 9px; font-weight: 700;
-      letter-spacing: 3px; text-transform: uppercase;
-      color: var(--gold);
+      font-size: clamp(28px, 6vw, 44px);
+      font-weight: 700;
+      line-height: 1.15;
       margin-bottom: 20px;
     }
 
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col ul li {
-      font-size: 13px; font-weight: 300;
-      color: rgba(255,255,255,.4);
+    h1 em {
+      font-style: italic;
+      color: #C9A84C;
     }
 
-    .footer-bottom {
-      padding-top: 28px;
-      border-top: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 12px;
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: #C9A84C;
+      margin: 0 auto 28px;
+      opacity: 0.5;
     }
 
-    .footer-copy { font-size: 11px; color: rgba(255,255,255,.2); }
-    .footer-cro {
-      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
-      color: rgba(201,168,76,.3);
+    p {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 16px;
     }
 
-    /* ─── WA FLUTUANTE ───────────────────────────── */
-    .wa-float {
-      position: fixed; bottom: 28px; right: 28px; z-index: 800;
-      width: 56px; height: 56px; border-radius: 50%;
-      background: #25D366;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,211,102,.4);
-      transition: transform .2s, box-shadow .2s;
-      animation: wa-pulse 3s infinite;
-    }
-    .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,.55); }
-
-    .wa-tip {
-      position: absolute; right: 66px;
-      background: var(--dark2); color: var(--white);
-      font-size: 12px; font-weight: 500; white-space: nowrap;
-      padding: 8px 14px; border-radius: 4px;
-      border: 1px solid var(--border);
-      pointer-events: none;
-      opacity: 0; transform: translateX(6px);
-      transition: opacity .3s, transform .3s;
-      font-family: 'Inter', sans-serif;
-    }
-    .wa-float:hover .wa-tip { opacity: 1; transform: translateX(0); }
-
-    @keyframes wa-pulse {
-      0%   { box-shadow: 0 0 0 0 rgba(37,211,102,.45); }
-      70%  { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
-      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    .highlight {
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 4px;
+      padding: 20px 24px;
+      margin: 32px 0;
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.75;
     }
 
-    /* ─── RESPONSIVE ─────────────────────────────── */
-    @media (max-width: 1024px) {
-      .hero-content { max-width: 100%; padding: 140px 0 80px; }
-      .sobre-text-col { padding: 80px 48px 80px 40px; }
-      .servicos-header { grid-template-columns: 1fr; gap: 20px; }
-      .servicos-header p { max-width: 100%; }
+    .highlight strong {
+      color: #C9A84C;
+      font-weight: 600;
     }
 
-    @media (max-width: 768px) {
-      nav { padding: 18px 20px; }
-      nav.scrolled { padding: 14px 20px; }
-      .nav-links { display: none; }
-      .container { padding: 0 20px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #C9A84C;
+      color: #080807;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      padding: 16px 36px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 8px;
+    }
+    .btn:hover {
+      background: #E2C97E;
+      transform: translateY(-2px);
+    }
 
-      /* hero full bleed mobile */
-      #hero { min-height: 100svh; }
-      #hero::before {
-        background: linear-gradient(
-          180deg,
-          rgba(8,8,7,.55) 0%,
-          rgba(8,8,7,.38) 50%,
-          rgba(8,8,7,.60) 100%
-        );
-      }
-      .hero-bg { filter: brightness(.90) contrast(1.02); }
-      .hero-content { padding: 120px 0 80px; }
-      .hero-stats { gap: 24px; flex-wrap: wrap; }
-
-      /* sobre empilhado */
-      #sobre { grid-template-columns: 1fr; }
-      .sobre-photo-col { height: 70vw; min-height: 280px; }
-      .sobre-photo-col::after { background: linear-gradient(to top, rgba(17,17,16,1) 0%, transparent 60%); }
-      .sobre-text-col { padding: 60px 20px; }
-
-      /* serviços */
-      .servicos-list { grid-template-columns: 1fr; }
-      .servico-item { border-right: none !important; }
-      .servicos-header { grid-template-columns: 1fr; }
-
-      /* resultados */
-      .feedbacks-masonry { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
-      .fb-card:nth-child(7) { grid-column: span 1; }
-      .feedbacks-header { flex-direction: column; align-items: flex-start; }
-      .feedbacks-header p { text-align: left; max-width: 100%; }
-
-      /* depoimentos */
-      .depo-wa-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-      .depo-wa-card:nth-child(2),
-      .depo-wa-card:nth-child(4) { margin-top: 0; }
-
-      /* CTA */
-      #agendar { grid-template-columns: 1fr; }
-      .cta-photo-col { height: 60vw; min-height: 240px; }
-      .cta-text-col { padding: 60px 20px; border-left: none; }
-
-      /* footer */
-      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .footer-note {
+      margin-top: 40px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.18);
+      letter-spacing: 0.5px;
     }
   </style>
 </head>
 <body>
 
-<!-- ══ NAV ══════════════════════════════════════════ -->
-<nav id="navbar">
-  <div class="nav-logo">Instituto <span>Dr. Bozolan</span></div>
-  <div class="nav-right">
-    <div class="nav-links">
-      <a href="#sobre"     class="nav-link">Sobre</a>
-      <a href="#servicos"  class="nav-link">Tratamentos</a>
-      <a href="#feedbacks" class="nav-link">Resultados</a>
-    </div>
-    <a href="LINK_WA" target="_blank" class="nav-cta">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.862L0 24l6.292-1.503A11.926 11.926 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.95 0-3.77-.525-5.332-1.44l-.382-.226-3.736.892.933-3.617-.249-.393A9.793 9.793 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
-      Agendar
-    </a>
+<div class="wrap">
+
+  <span class="icon">🔒</span>
+
+  <div class="eyebrow">Instituto Dr. Marcos Bozolan</div>
+
+  <h1>Este site estava<br /><em>reservado para você.</em></h1>
+
+  <div class="divider"></div>
+
+  <p>Como não houve confirmação, o projeto foi liberado e já está sendo apresentado para <strong style="color:rgba(255,255,255,0.75);">outra clínica odontológica no Tatuapé.</strong></p>
+
+  <div class="highlight">
+    💬 &nbsp;Se você mudou de ideia, <strong>entre em contato agora</strong> — antes que o site seja personalizado para outro profissional da região.
   </div>
-</nav>
 
-<!-- ══ HERO — CONSULTÓRIO FULL BLEED ═════════════════ -->
-<section id="hero">
-  <img
-    src="images/consultorio-fundo.png"
-    alt=""
-    class="hero-bg"
-    loading="eager"
-    aria-hidden="true"
-  />
-  <div class="container">
-    <div class="hero-content">
-      <div class="eyebrow">Referência em São Paulo · Desde 2018</div>
-      <h1 class="hero-title">
-        Transforme<br />o seu sorriso.
-        <em>Mude sua história.</em>
-      </h1>
-      <p class="hero-sub">
-        Lentes de resina, botox e harmonização facial com excelência,
-        cuidado individualizado e mais de 7.000 vidas transformadas.
-      </p>
-      <div class="hero-btns">
-        <a href="LINK_WA" target="_blank" class="btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.862L0 24l6.292-1.503A11.926 11.926 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.95 0-3.77-.525-5.332-1.44l-.382-.226-3.736.892.933-3.617-.249-.393A9.793 9.793 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
-          Agendar avaliação
-        </a>
-        <a href="#sobre" class="btn-ghost">Conhecer o doutor</a>
-      </div>
-      <div class="hero-stats">
-        <div>
-          <div class="hero-stat-num">7K+</div>
-          <div class="hero-stat-label">Sorrisos transformados</div>
-        </div>
-        <div>
-          <div class="hero-stat-num">2018</div>
-          <div class="hero-stat-label">Atuando com propósito</div>
-        </div>
-        <div>
-          <div class="hero-stat-num">5★</div>
-          <div class="hero-stat-label">Avaliação Google</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  <a href="https://wa.me/5511951921759?text=Ol%C3%A1%2C%20mudei%20de%20ideia%20sobre%20o%20site.%20Ainda%20d%C3%A1%20pra%20fechar%3F" target="_blank" class="btn">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.862L0 24l6.292-1.503A11.926 11.926 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.95 0-3.77-.525-5.332-1.44l-.382-.226-3.736.892.933-3.617-.249-.393A9.793 9.793 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+    Quero fechar agora
+  </a>
 
-<!-- ══ SOBRE EDITORIAL ═══════════════════════════════ -->
-<section id="sobre">
-  <div class="sobre-photo-col">
-    <img
-      src="images/expert/foto-1.png"
-      alt="Dr. Marcos Bozolan Junior — Cirurgião Dentista"
-      class="sobre-photo"
-      loading="lazy"
-    />
-  </div>
-  <div class="sobre-text-col">
-    <div class="eyebrow">Dr. Marcos Bozolan Junior</div>
-    <h2 style="font-size:clamp(28px,3.5vw,46px);line-height:1.15;font-weight:700;margin-bottom:4px;">
-      Cirurgião Dentista,<br />
-      <span style="color:var(--gold);font-style:italic;">Empresário & Mentor</span>
-    </h2>
-    <blockquote class="sobre-quote">
-      "Cada paciente é atendido de forma humanizada,<br />
-      individualizada e respeitosa."
-    </blockquote>
-    <p>O Dr. Marcos Bozolan Junior é referência em odontologia estética em São Paulo. À frente do <strong style="color:var(--white);font-weight:500;">Instituto Dr. Marcos Bozolan</strong>, em Mooca/SP, lidera uma equipe que transforma sorrisos com técnica, ética e cuidado real.</p>
-    <p>Especialista em Lentes de Resina e Harmonização Orofacial, une ciência e estética para entregar resultados que mudam a autoestima e a vida dos seus pacientes.</p>
-    <div class="sobre-chips">
-      <span class="chip">Lentes de Resina</span>
-      <span class="chip">Botox</span>
-      <span class="chip">Harmonização</span>
-      <span class="chip">Ortodontia</span>
-      <span class="chip">Gengivoplastia</span>
-    </div>
-    <a href="LINK_WA" target="_blank" class="btn-primary">Agendar minha avaliação</a>
-  </div>
-</section>
+  <p class="footer-note">drbozolan.vercel.app</p>
 
-<!-- ══ SERVIÇOS ══════════════════════════════════════ -->
-<section id="servicos">
-  <div class="container">
-    <div class="servicos-header">
-      <div>
-        <div class="eyebrow">O que fazemos</div>
-        <h2 class="section-title">
-          Tratamentos<br />&amp; <span style="color:var(--gold);font-style:italic;">Especialidades</span>
-        </h2>
-      </div>
-      <p>Da estética ao cuidado completo — com a excelência e o atendimento humanizado que você merece. Somente com hora marcada.</p>
-    </div>
-    <div class="servicos-list">
+</div>
 
-      <div class="servico-item destaque">
-        <div class="servico-badge-inline">Carro-chefe</div>
-        <div class="servico-num">01</div>
-        <h3>Lentes de Resina</h3>
-        <p>Transformação completa do sorriso em uma sessão. Sem desgaste excessivo, resultado natural e duradouro. Referência absoluta no Instituto.</p>
-        <svg class="servico-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </div>
-
-      <div class="servico-item">
-        <div class="servico-num">02</div>
-        <h3>Botox Facial</h3>
-        <p>Aplicação precisa para suavizar linhas de expressão e rejuvenescer com naturalidade e segurança clínica.</p>
-        <svg class="servico-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </div>
-
-      <div class="servico-item">
-        <div class="servico-num">03</div>
-        <h3>Preenchimento Labial</h3>
-        <p>Lábios mais volumosos e harmoniosos, respeitando as proporções do rosto para um resultado elegante e natural.</p>
-        <svg class="servico-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </div>
-
-      <div class="servico-item">
-        <div class="servico-num">04</div>
-        <h3>Ortodontia</h3>
-        <p>Alinhamento dental moderno com aparelhos convencionais ou estéticos. Sorriso alinhado com planejamento e segurança.</p>
-        <svg class="servico-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </div>
-
-      <div class="servico-item">
-        <div class="servico-num">05</div>
-        <h3>Gengivoplastia</h3>
-        <p>Remodelação da gengiva para equilibrar o sorriso. Procedimento minimamente invasivo com resultados definitivos.</p>
-        <svg class="servico-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </div>
-
-      <div class="servico-item">
-        <div class="servico-num">06</div>
-        <h3>Restauração Estética</h3>
-        <p>Recuperação de dentes comprometidos com materiais de alta performance. Devolvemos função e beleza ao sorriso.</p>
-        <svg class="servico-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══ RESULTADOS ════════════════════════════════════ -->
-<section id="feedbacks">
-  <div class="container">
-    <div class="feedbacks-header">
-      <div>
-        <div class="eyebrow">Antes &amp; depois</div>
-        <h2 class="section-title">
-          Resultados<br /><span style="color:var(--gold);font-style:italic;">reais.</span>
-        </h2>
-      </div>
-      <p>Cases reais do Instituto.<br />Sorrisos e procedimentos que mudaram histórias.</p>
-    </div>
-    <div class="feedbacks-masonry" id="feedbacksGrid"></div>
-  </div>
-</section>
-
-<!-- ══ DEPOIMENTOS ═══════════════════════════════════ -->
-<section id="depoimentos">
-  <div class="container">
-    <div class="depo-header">
-      <div class="eyebrow" style="justify-content:center;">Avaliações reais</div>
-      <h2 class="section-title">
-        O que os pacientes <span style="color:var(--gold);font-style:italic;">dizem</span>
-      </h2>
-      <p class="depo-sub">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.862L0 24l6.292-1.503A11.926 11.926 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.95 0-3.77-.525-5.332-1.44l-.382-.226-3.736.892.933-3.617-.249-.393A9.793 9.793 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
-        Depoimentos recebidos via WhatsApp pelos pacientes do Instituto
-      </p>
-    </div>
-
-    <div class="depo-wa-grid">
-
-      <div class="depo-wa-card">
-        <img src="images/avaliacoes/depo-1.png" alt="Depoimento paciente 1 — Instituto Dr. Bozolan" loading="lazy" />
-        <div class="depo-wa-badge">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.862L0 24l6.292-1.503A11.926 11.926 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.95 0-3.77-.525-5.332-1.44l-.382-.226-3.736.892.933-3.617-.249-.393A9.793 9.793 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
-          Paciente real
-        </div>
-      </div>
-
-      <div class="depo-wa-card">
-        <img src="images/avaliacoes/depo-2.png" alt="Depoimento paciente 2 — Instituto Dr. Bozolan" loading="lazy" />
-        <div class="depo-wa-badge">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.862L0 24l6.292-1.503A11.926 11.926 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.95 0-3.77-.525-5.332-1.44l-.382-.226-3.736.892.933-3.617-.249-.393A9.793 9.793 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
-          Paciente real
-        </div>
-      </div>
-
-      <div class="depo-wa-card">
-        <img src="images/avaliacoes/depo-3.png" alt="Depoimento paciente 3 — Instituto Dr. Bozolan" loading="lazy" />
-        <div class="depo-wa-badge">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.862L0 24l6.292-1.503A11.926 11.926 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.95 0-3.77-.525-5.332-1.44l-.382-.226-3.736.892.933-3.617-.249-.393A9.793 9.793 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
-          Paciente real
-        </div>
-      </div>
-
-      <div class="depo-wa-card">
-        <img src="images/avaliacoes/depo-4.png" alt="Depoimento paciente 4 — Instituto Dr. Bozolan" loading="lazy" />
-        <div class="depo-wa-badge">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.862L0 24l6.292-1.503A11.926 11.926 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.95 0-3.77-.525-5.332-1.44l-.382-.226-3.736.892.933-3.617-.249-.393A9.793 9.793 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
-          Paciente real
-        </div>
-      </div>
-
-      <div class="depo-wa-card">
-        <img src="images/avaliacoes/depo-5.png" alt="Depoimento paciente 5 — Instituto Dr. Bozolan" loading="lazy" />
-        <div class="depo-wa-badge">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.862L0 24l6.292-1.503A11.926 11.926 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.95 0-3.77-.525-5.332-1.44l-.382-.226-3.736.892.933-3.617-.249-.393A9.793 9.793 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
-          Paciente real
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══ CTA SPLIT COM FOTO ════════════════════════════ -->
-<section id="agendar">
-  <div class="cta-photo-col">
-    <img
-      src="images/expert/foto-3.png"
-      alt="Dr. Marcos Bozolan — Instituto"
-      class="cta-photo"
-      loading="lazy"
-    />
-  </div>
-  <div class="cta-text-col">
-    <div class="eyebrow">Próximo passo</div>
-    <h2 class="cta-title">
-      Pronto para<br />
-      <em>transformar</em><br />
-      o seu sorriso?
-    </h2>
-    <p>Agende sua avaliação pelo WhatsApp. Atendimento somente com hora marcada. Vagas limitadas — garanta a sua.</p>
-    <a href="LINK_WA" target="_blank" class="btn-primary" style="width:fit-content;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.862L0 24l6.292-1.503A11.926 11.926 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.95 0-3.77-.525-5.332-1.44l-.382-.226-3.736.892.933-3.617-.249-.393A9.793 9.793 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
-      Agendar pelo WhatsApp
-    </a>
-    <div class="cta-info-list">
-      <div class="cta-info-item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Ambiente seguro e esterilizado
-      </div>
-      <div class="cta-info-item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        Somente com hora marcada
-      </div>
-      <div class="cta-info-item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Rua Serra de Bragança, 1055 — Mooca/SP
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ FOOTER ════════════════════════════════════════ -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-logo">Instituto <span>Dr. Bozolan</span></div>
-        <p class="footer-desc">Odontologia estética com humanidade, excelência e propósito. Transformando sorrisos desde 2018.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Tratamentos</h4>
-        <ul>
-          <li>Lentes de Resina</li>
-          <li>Botox Facial</li>
-          <li>Preenchimento Labial</li>
-          <li>Ortodontia</li>
-          <li>Gengivoplastia</li>
-          <li>Restauração Estética</li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <ul>
-          <li>(11) 98162-6446</li>
-          <li>@dr.bozzolan</li>
-          <li>@_mb.odontologia</li>
-          <li>R. Serra de Bragança, 1055</li>
-          <li>Mooca · São Paulo/SP</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2025 Instituto Dr. Marcos Bozolan · Todos os direitos reservados</div>
-      <div class="footer-cro">Dr. Marcos Bozolan Júnior · CRO-SP 132574</div>
-    </div>
-  </div>
-</footer>
-
-<!-- ══ WA FLUTUANTE ══════════════════════════════════ -->
-<a href="LINK_WA" target="_blank" class="wa-float" aria-label="Agendar pelo WhatsApp">
-  <div class="wa-tip">Agendar agora</div>
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.862L0 24l6.292-1.503A11.926 11.926 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.95 0-3.77-.525-5.332-1.44l-.382-.226-3.736.892.933-3.617-.249-.393A9.793 9.793 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
-</a>
-
-<!-- ══ JS ════════════════════════════════════════════ -->
-<script>
-  const WA_NUM = '5511981626446';
-  const WA_MSG = 'Olá! Vi o site do Instituto Dr. Bozolan e gostaria de agendar uma avaliação. 😊';
-  const WA_URL = `https://wa.me/${WA_NUM}?text=${encodeURIComponent(WA_MSG)}`;
-  const IMGS   = [
-    'images/resultados/feedback-1.png',
-    'images/resultados/feedback-2.png',
-    'images/resultados/feedback-3.png',
-    'images/resultados/feedback-4.png',
-    'images/resultados/feedback-5.png',
-    'images/resultados/feedback-6.png',
-    'images/resultados/feedback-7.png',
-    'images/resultados/feedback-8.png',
-  ];
-
-  // links WA
-  document.querySelectorAll('[href="LINK_WA"]').forEach(el => el.href = WA_URL);
-
-  // galeria
-  const grid = document.getElementById('feedbacksGrid');
-  IMGS.forEach((src, i) => {
-    const d = document.createElement('div');
-    d.className = 'fb-card';
-    d.innerHTML = `
-      <img src="${src}" alt="Resultado ${i+1} — Instituto Dr. Bozolan"
-           loading="lazy" onerror="this.closest('.fb-card').style.display='none'" />
-      <div class="fb-card-overlay"></div>`;
-    grid.appendChild(d);
-  });
-
-  // nav scroll
-  const nav = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  }, { passive: true });
-</script>
 </body>
 </html>
